@@ -6,6 +6,10 @@ export const fonts: any = {
 
 export const breakpoints: any = {
   mobile: '500px',
+  tablet: '768px',
+  laptop: '1024px',
+  desktop: '1366px',
+  desktopLarge: '1920px',
 };
 
 export const colors: any = {
