@@ -115,6 +115,7 @@ function NavBar(): JSX.Element {
           position: fixed;
           justify-content: space-around;
           transition: 0.5s ease;
+          z-index: 9999;
         }
 
         .navbar-active {
@@ -158,7 +159,7 @@ function NavBar(): JSX.Element {
           padding: 20px;
 
           transform: scaleY(0);
-          transition: transform 0.5s ease;
+          transition: transform 0.4s ease;
         }
 
         .nav-active {
@@ -220,7 +221,7 @@ function NavBar(): JSX.Element {
           display: none;
         }
 
-        @media screen and (min-width: ${breakpoints.tablet}) {
+        @media screen and (min-width: ${breakpoints.laptop}) {
           .navbar {
             height: 60px;
             transition: initial;
@@ -237,7 +238,7 @@ function NavBar(): JSX.Element {
 
           .nav-links {
             justify-content: space-between;
-            width: 57%;
+            width: 45%;
             position: initial;
             right: initial;
             height: initial;
@@ -259,12 +260,6 @@ function NavBar(): JSX.Element {
 
           .github2 {
             display: block;
-          }
-        }
-
-        @media screen and (min-width: ${breakpoints.laptop}) {
-          .nav-links {
-            width: 45%;
           }
         }
 
