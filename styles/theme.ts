@@ -13,6 +13,6 @@ export const breakpoints: any = {
 };
 
 export const colors: any = {
-  black: '#4e4e4e',
+  black: '#000000',
   white: '#ffffff',
 };

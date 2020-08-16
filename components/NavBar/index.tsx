@@ -1,31 +1,35 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 
+import GitHubIcon from '../GitHubIcon';
+
 import { colors, breakpoints } from '../../styles/theme';
 
 function NavBar(): JSX.Element {
   const [active, setActive] = useState(false);
 
+  const navbar = useRef(null);
   const ref = useRef(null);
   const projects = useRef(null);
   const certificates = useRef(null);
-  const curriculum = useRef(null);
+  const resume = useRef(null);
   const wrapperLine1 = useRef(null);
   const wrapperLine2 = useRef(null);
   const line1 = useRef(null);
   const line2 = useRef(null);
 
-  const timeForWrapper = active ? 300 : 0;
-  const timeForLine = active ? 0 : 300;
+  const timeForWrapper = active ? 200 : 0;
+  const timeForLine = active ? 0 : 200;
 
   const handleClick = () => {
     setActive(!active);
 
+    navbar.current.classList.toggle('navbar-active');
     ref.current.classList.toggle('nav-active');
 
     projects.current.classList.toggle('items-active');
     certificates.current.classList.toggle('items-active');
-    curriculum.current.classList.toggle('items-active');
+    resume.current.classList.toggle('items-active');
 
     setTimeout(() => {
       wrapperLine1.current.classList.toggle('active');
@@ -40,8 +44,16 @@ function NavBar(): JSX.Element {
 
   return (
     <>
-      <nav className='navbar'>
-        <div>
+      <nav className='navbar' ref={navbar}>
+        <a
+          href='https://www.github.com/armc7'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='github1'>
+          <GitHubIcon />
+        </a>
+
+        <div className='logo-container'>
           <h3>
             <Link href='/'>
               <a className='logo' title='Home'>
@@ -52,19 +64,19 @@ function NavBar(): JSX.Element {
         </div>
 
         <ul className='nav-links' ref={ref}>
-          <li ref={projects}>
+          <li className='item' ref={projects}>
             <Link href='/projects'>
               <a title='Projects Page'>PROJECTS</a>
             </Link>
           </li>
-          <li ref={certificates}>
+          <li className='item' ref={certificates}>
             <Link href='/certificates'>
               <a title='Certificates Page'>CERTIFICATES</a>
             </Link>
           </li>
-          <li ref={curriculum}>
-            <Link href='/curriculum'>
-              <a title='Curriculum Page'>CURRICULUM</a>
+          <li className='item' ref={resume}>
+            <Link href='/resume'>
+              <a title='Resume Page'>RESUME</a>
             </Link>
           </li>
         </ul>
@@ -78,6 +90,14 @@ function NavBar(): JSX.Element {
             <div className='line2' ref={line2}></div>
           </div>
         </div>
+
+        <a
+          href='https://www.github.com/armc7'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='github2'>
+          <GitHubIcon />
+        </a>
       </nav>
 
       <style jsx>{`
@@ -88,11 +108,22 @@ function NavBar(): JSX.Element {
         .navbar {
           width: 100vw;
           height: 50px;
-          background-color: ${colors.black};
+          backdrop-filter: blur(10px);
+          background-color: #1d1d1fcf;
           display: flex;
           align-items: center;
           position: fixed;
           justify-content: space-around;
+          transition: 0.5s ease;
+        }
+
+        .navbar-active {
+          backdrop-filter: initial;
+          background-color: ${colors.black};
+        }
+
+        .logo-container {
+          z-index: 9999;
         }
 
         .logo {
@@ -100,49 +131,42 @@ function NavBar(): JSX.Element {
           font-size: 24px;
           font-weight: 100;
           font-family: 'Poppins';
-          letter-spacing: 5px;
+          letter-spacing: 4px;
         }
 
         .nav-links {
           list-style: none;
           display: flex;
-          justify-content: space-around;
-          width: 50%;
+          justify-content: flex-start;
+          width: 100%;
           position: absolute;
-          right: 0px;
-          height: calc(100vh - 50px);
+          height: 0;
           top: 50px;
           background-color: ${colors.black};
           margin: 0;
           flex-direction: column;
           align-items: center;
           padding: 0;
-          transform: translateX(100%);
-          transition: transform 0.5s ease-in;
+          transition: height 0.5s ease;
         }
 
-        .nav-links li {
-          opacity: 0;
-          transition: 0.5s ease;
+        .item {
+          width: 80%;
+          justify-content: center;
+          display: flex;
+          border-top: 1px solid gray;
+          padding: 20px;
+
+          transform: scaleY(0);
+          transition: transform 0.5s ease;
         }
 
         .nav-active {
-          transform: translateX(0);
+          height: calc(100vh - 50px);
         }
 
         .items-active {
-          animation: navLinkFade 0.5s ease forwards 0.3s;
-        }
-
-        @keyframes navLinkFade {
-          from {
-            opacity: 0;
-            transform: translateX(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
+          transform: scaleY(1);
         }
 
         .nav-links a {
@@ -155,8 +179,6 @@ function NavBar(): JSX.Element {
         .burger {
           display: block;
           cursor: pointer;
-          position: fixed;
-          right: 12px;
         }
 
         .burger > div > div {
@@ -167,17 +189,17 @@ function NavBar(): JSX.Element {
         }
 
         .wrapper-line1 {
-          transition: 0.3s ease;
+          transition: 0.2s ease;
         }
         .wrapper-line2 {
-          transition: 0.3s ease;
+          transition: 0.2s ease;
         }
 
         .line1 {
-          transition: 0.3s ease;
+          transition: 0.2s ease;
         }
         .line2 {
-          transition: 0.3s ease;
+          transition: 0.2s ease;
         }
 
         .wrapper-line1.active {
@@ -194,9 +216,14 @@ function NavBar(): JSX.Element {
           transform: rotate(45deg);
         }
 
+        .github2 {
+          display: none;
+        }
+
         @media screen and (min-width: ${breakpoints.tablet}) {
           .navbar {
             height: 60px;
+            transition: initial;
           }
 
           .logo {
@@ -217,11 +244,21 @@ function NavBar(): JSX.Element {
             flex-direction: initial;
             transform: initial;
             transition: initial;
+            background-color: initial;
           }
 
-          .nav-links li {
-            opacity: initial;
+          .item {
+            transform: initial;
             transition: initial;
+            border: initial;
+          }
+
+          .github1 {
+            display: none;
+          }
+
+          .github2 {
+            display: block;
           }
         }
 
