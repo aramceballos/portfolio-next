@@ -1,7 +1,7 @@
 import AppLayout from '../components/AppLayout';
 import { breakpoints } from '../styles/theme';
 
-function Home(): JSX.Element {
+const Home = () => {
   return (
     <>
       <AppLayout>
@@ -62,6 +62,6 @@ function Home(): JSX.Element {
       `}</style>
     </>
   );
-}
+};
 
 export default Home;

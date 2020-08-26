@@ -5,18 +5,18 @@ import GitHubIcon from '../GitHubIcon';
 
 import { colors, breakpoints } from '../../styles/theme';
 
-function NavBar(): JSX.Element {
+const NavBar = (): JSX.Element => {
   const [active, setActive] = useState(false);
 
-  const navbar = useRef(null);
-  const ref = useRef(null);
-  const projects = useRef(null);
-  const certificates = useRef(null);
-  const resume = useRef(null);
-  const wrapperLine1 = useRef(null);
-  const wrapperLine2 = useRef(null);
-  const line1 = useRef(null);
-  const line2 = useRef(null);
+  const navbar: React.Ref<any> = useRef(null);
+  const ref: React.Ref<any> = useRef(null);
+  const projects: React.Ref<any> = useRef(null);
+  const certificates: React.Ref<any> = useRef(null);
+  const resume: React.Ref<any> = useRef(null);
+  const wrapperLine1: React.Ref<any> = useRef(null);
+  const wrapperLine2: React.Ref<any> = useRef(null);
+  const line1: React.Ref<any> = useRef(null);
+  const line2: React.Ref<any> = useRef(null);
 
   const timeForWrapper = active ? 200 : 0;
   const timeForLine = active ? 0 : 200;
@@ -114,8 +114,9 @@ function NavBar(): JSX.Element {
           align-items: center;
           position: fixed;
           justify-content: space-around;
-          transition: 0.5s ease;
+          transition: background-color 0.5s ease;
           z-index: 9999;
+          top: 0;
         }
 
         .navbar-active {
@@ -272,6 +273,6 @@ function NavBar(): JSX.Element {
       `}</style>
     </>
   );
-}
+};
 
 export default NavBar;
