@@ -22,7 +22,7 @@ const NavBar = (): JSX.Element => {
   const timeForLine = active ? 0 : 200;
 
   const handleClick = () => {
-    if (window.screen.width < 500) {
+    if (window.screen.width < 1024) {
       setActive(!active);
 
       navbar.current.classList.toggle('navbar-active');
@@ -166,8 +166,8 @@ const NavBar = (): JSX.Element => {
           border-top: 1px solid gray;
           padding: 20px;
 
-          transform: scaleY(0);
-          transition: transform 0.4s ease;
+          opacity: 0;
+          transition: opacity 0.4s ease;
         }
 
         .nav-active {
@@ -175,7 +175,7 @@ const NavBar = (): JSX.Element => {
         }
 
         .items-active {
-          transform: scaleY(1);
+          opacity: 1;
         }
 
         .nav-links a {
@@ -260,6 +260,7 @@ const NavBar = (): JSX.Element => {
             transform: initial;
             transition: initial;
             border: initial;
+            opacity: 1;
           }
 
           .github1 {
