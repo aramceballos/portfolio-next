@@ -22,24 +22,26 @@ const NavBar = (): JSX.Element => {
   const timeForLine = active ? 0 : 200;
 
   const handleClick = () => {
-    setActive(!active);
+    if (window.screen.width < 500) {
+      setActive(!active);
 
-    navbar.current.classList.toggle('navbar-active');
-    ref.current.classList.toggle('nav-active');
+      navbar.current.classList.toggle('navbar-active');
+      ref.current.classList.toggle('nav-active');
 
-    projects.current.classList.toggle('items-active');
-    certificates.current.classList.toggle('items-active');
-    resume.current.classList.toggle('items-active');
+      projects.current.classList.toggle('items-active');
+      certificates.current.classList.toggle('items-active');
+      resume.current.classList.toggle('items-active');
 
-    setTimeout(() => {
-      wrapperLine1.current.classList.toggle('active');
-      wrapperLine2.current.classList.toggle('active');
-    }, timeForWrapper);
+      setTimeout(() => {
+        wrapperLine1.current.classList.toggle('active');
+        wrapperLine2.current.classList.toggle('active');
+      }, timeForWrapper);
 
-    setTimeout(() => {
-      line1.current.classList.toggle('active');
-      line2.current.classList.toggle('active');
-    }, timeForLine);
+      setTimeout(() => {
+        line1.current.classList.toggle('active');
+        line2.current.classList.toggle('active');
+      }, timeForLine);
+    }
   };
 
   return (
