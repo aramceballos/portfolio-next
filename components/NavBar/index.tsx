@@ -66,17 +66,23 @@ const NavBar = (): JSX.Element => {
         <ul className='nav-links' ref={ref}>
           <li className='item' ref={projects}>
             <Link href='/projects'>
-              <a title='Projects Page'>PROJECTS</a>
+              <a title='Projects Page' onClick={handleClick}>
+                PROJECTS
+              </a>
             </Link>
           </li>
           <li className='item' ref={certificates}>
             <Link href='/certificates'>
-              <a title='Certificates Page'>CERTIFICATES</a>
+              <a title='Certificates Page' onClick={handleClick}>
+                CERTIFICATES
+              </a>
             </Link>
           </li>
           <li className='item' ref={resume}>
             <Link href='/resume'>
-              <a title='Resume Page'>RESUME</a>
+              <a title='Resume Page' onClick={handleClick}>
+                RESUME
+              </a>
             </Link>
           </li>
         </ul>
@@ -120,7 +126,6 @@ const NavBar = (): JSX.Element => {
         }
 
         .navbar-active {
-          backdrop-filter: initial;
           background-color: ${colors.black};
         }
 
