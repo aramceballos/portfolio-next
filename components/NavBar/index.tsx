@@ -8,6 +8,7 @@ import { colors, breakpoints } from '../../styles/theme';
 const NavBar = (): JSX.Element => {
   const [active, setActive] = useState(false);
 
+  // Get references of elements
   const navbar: React.Ref<any> = useRef(null);
   const ref: React.Ref<any> = useRef(null);
   const projects: React.Ref<any> = useRef(null);
@@ -18,29 +19,53 @@ const NavBar = (): JSX.Element => {
   const line1: React.Ref<any> = useRef(null);
   const line2: React.Ref<any> = useRef(null);
 
-  const timeForWrapper = active ? 200 : 0;
-  const timeForLine = active ? 0 : 200;
+  // Timings for animations
+  const timeForNavBar = active ? 400 : 0;
+  const timeForLinksWrapper = 200;
+  const timeForLinks = active ? 500 : 0;
+  const timeForLink1 = active ? 450 : 200;
+  const timeForLink2 = active ? 350 : 300;
+  const timeForLink3 = active ? 250 : 400;
+  const timeForVerticalMove = active ? 200 : 0;
+  const timeForRotate = active ? 0 : 200;
 
   const handleClick = () => {
     if (window.screen.width < 1024) {
       setActive(!active);
 
-      navbar.current.classList.toggle('navbar-active');
-      ref.current.classList.toggle('nav-active');
+      setTimeout(() => {
+        navbar.current.classList.toggle('navbar-active');
+      }, timeForNavBar);
 
-      projects.current.classList.toggle('items-active');
-      certificates.current.classList.toggle('items-active');
-      resume.current.classList.toggle('items-active');
+      setTimeout(() => {
+        ref.current.classList.toggle('nav-active');
+      }, timeForLinksWrapper);
+
+      setTimeout(() => {
+        projects.current.style.display = active ? 'none' : 'flex';
+        certificates.current.style.display = active ? 'none' : 'flex';
+        resume.current.style.display = active ? 'none' : 'flex';
+      }, timeForLinks);
+
+      setTimeout(() => {
+        projects.current.classList.toggle('items-active');
+      }, timeForLink1);
+      setTimeout(() => {
+        certificates.current.classList.toggle('items-active');
+      }, timeForLink2);
+      setTimeout(() => {
+        resume.current.classList.toggle('items-active');
+      }, timeForLink3);
 
       setTimeout(() => {
         wrapperLine1.current.classList.toggle('active');
         wrapperLine2.current.classList.toggle('active');
-      }, timeForWrapper);
+      }, timeForVerticalMove);
 
       setTimeout(() => {
         line1.current.classList.toggle('active');
         line2.current.classList.toggle('active');
-      }, timeForLine);
+      }, timeForRotate);
     }
   };
 
@@ -116,19 +141,22 @@ const NavBar = (): JSX.Element => {
         .navbar {
           width: 100vw;
           height: 50px;
-          backdrop-filter: blur(10px);
-          background-color: #1d1d1fcf;
+          backdrop-filter: blur(21px);
+          background-color: ${colors.transparentGray};
+          box-shadow: inset 0px 0px 18px -10px ${colors.black},
+            inset 0px 0px 0px 0px ${colors.black};
           display: flex;
           align-items: center;
           position: fixed;
           justify-content: space-around;
-          transition: background-color 0.5s ease;
+          transition: box-shadow 0.5s ease-in-out;
           z-index: 9999;
           top: 0;
         }
 
         .navbar-active {
-          background-color: ${colors.black};
+          box-shadow: inset 0px 100px 25px 0px ${colors.black},
+            inset 0px 0px 8px 0px ${colors.black};
         }
 
         .logo-container {
@@ -156,18 +184,18 @@ const NavBar = (): JSX.Element => {
           flex-direction: column;
           align-items: center;
           padding: 0;
-          transition: height 0.5s ease;
+          transition: height 0.5s ease-in-out;
         }
 
         .item {
           width: 80%;
           justify-content: center;
-          display: flex;
+          display: none;
           border-top: 1px solid gray;
           padding: 20px;
 
           opacity: 0;
-          transition: opacity 0.4s ease;
+          transition: opacity 0.3s ease;
         }
 
         .nav-active {
