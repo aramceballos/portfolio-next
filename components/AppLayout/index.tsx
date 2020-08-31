@@ -29,6 +29,9 @@ const AppLayout = ({ title, children }: AppLayoutProps): JSX.Element => {
       `}</style>
 
       <style jsx global>{`
+        * {
+          outline: none;
+        }
         html,
         body {
           margin: 0;
