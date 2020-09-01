@@ -261,6 +261,7 @@ const NavBar = (): JSX.Element => {
           .navbar {
             height: 60px;
             transition: initial;
+            box-shadow: none;
           }
 
           .logo {
@@ -289,6 +290,7 @@ const NavBar = (): JSX.Element => {
             transition: initial;
             border: initial;
             opacity: 1;
+            display: flex;
           }
 
           .github1 {
