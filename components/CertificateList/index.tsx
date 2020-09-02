@@ -1,25 +1,22 @@
 import React from 'react';
-import Card from '@components/Card';
+import SimpleCard from '@components/SimpleCard';
 import { breakpoints } from '../../styles/theme';
 
-const ProjectList = ({ projects }: ProjectListProps) => {
+const CertificateList = ({ certificates }: CertificateListProps) => {
   return (
     <>
-      <section>
-        {projects.map((project: TProject) => (
-          <Card
-            key={project._id}
-            title={project.title}
-            description={project.description}
-            src={project.src}
-            repository={project.repository}
-            url={project.url}
+      <div className='cards-wrapper'>
+        {certificates.map((certificate) => (
+          <SimpleCard
+            key={certificate._id}
+            name={certificate.name}
+            src={certificate.src}
           />
         ))}
-      </section>
+      </div>
 
       <style jsx>{`
-        section {
+        .cards-wrapper {
           max-width: 750px;
           display: flex;
           flex-wrap: wrap;
@@ -29,7 +26,7 @@ const ProjectList = ({ projects }: ProjectListProps) => {
         }
 
         @media screen and (min-width: ${breakpoints.laptop}) {
-          section {
+          .card-wrapper {
             margin: 60px auto 0;
           }
         }
@@ -38,4 +35,4 @@ const ProjectList = ({ projects }: ProjectListProps) => {
   );
 };
 
-export default ProjectList;
+export default CertificateList;

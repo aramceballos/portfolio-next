@@ -1,4 +1,5 @@
 type TProjectId = string;
+type TCertificateId = string;
 
 type TProject = {
   _id: TProjectId;
@@ -10,11 +11,26 @@ type TProject = {
   repository?: string;
 };
 
+type TCertificate = {
+  _id: TCertificateId;
+  name: string;
+  src: string;
+};
+
 type ProjectListProps = {
   projects: TProject[];
 };
 
+type CertificateListProps = {
+  certificates: TCertificate[];
+};
+
 type TAPIProjectsResponse = {
   data: TProject[];
+  message: string;
+};
+
+type TAPICertificatesResponse = {
+  data: TCertificate[];
   message: string;
 };
