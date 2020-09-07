@@ -13,7 +13,7 @@ const NavBar = (): JSX.Element => {
   const ref: React.Ref<any> = useRef(null);
   const projects: React.Ref<any> = useRef(null);
   const certificates: React.Ref<any> = useRef(null);
-  const resume: React.Ref<any> = useRef(null);
+  const curriculum: React.Ref<any> = useRef(null);
   const wrapperLine1: React.Ref<any> = useRef(null);
   const wrapperLine2: React.Ref<any> = useRef(null);
   const line1: React.Ref<any> = useRef(null);
@@ -44,7 +44,7 @@ const NavBar = (): JSX.Element => {
       setTimeout(() => {
         projects.current.style.display = active ? 'none' : 'flex';
         certificates.current.style.display = active ? 'none' : 'flex';
-        resume.current.style.display = active ? 'none' : 'flex';
+        curriculum.current.style.display = active ? 'none' : 'flex';
       }, timeForLinks);
 
       setTimeout(() => {
@@ -54,7 +54,7 @@ const NavBar = (): JSX.Element => {
         certificates.current.classList.toggle('items-active');
       }, timeForLink2);
       setTimeout(() => {
-        resume.current.classList.toggle('items-active');
+        curriculum.current.classList.toggle('items-active');
       }, timeForLink3);
 
       setTimeout(() => {
@@ -105,10 +105,10 @@ const NavBar = (): JSX.Element => {
               </a>
             </Link>
           </li>
-          <li className='item' ref={resume}>
-            <Link href='/resume'>
-              <a title='Resume Page' onClick={handleClick}>
-                RESUME
+          <li className='item' ref={curriculum}>
+            <Link href='/curriculum'>
+              <a title='Curriculum Page' onClick={handleClick}>
+                CURRICULUM
               </a>
             </Link>
           </li>
