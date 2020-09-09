@@ -1,0 +1,27 @@
+{
+  "short_name": "Aram Ceballos",
+  "name": "Aram Ceballos",
+  "description": "Aram Ceballos Web Portfolio",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "type": "image/ico",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/ico",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/ico",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "theme_color": "#1d1d1d"
+}
