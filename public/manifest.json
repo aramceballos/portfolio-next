@@ -5,18 +5,18 @@
   "lang": "en-US",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "type": "image/ico",
+      "src": "/icon.png",
+      "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "/favicon.ico",
-      "type": "image/ico",
+      "src": "/icon.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/favicon.ico",
-      "type": "image/ico",
+      "src": "/icon.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
