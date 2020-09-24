@@ -1,29 +1,58 @@
 import AppLayout from '../components/AppLayout';
-import { breakpoints } from '../styles/theme';
+import { breakpoints, colors } from '../styles/theme';
 
 const Home = () => {
   return (
     <>
       <AppLayout>
         <main>
-          <section>
-            <p>
-              Hi my name is Aram Ceballos and i am a JavaScript Full Stack
-              Developer. I have been a dedicated and determined who sets goals
-              for himself. Having learned most of my skills through
-              self-teaching by sources like courses, books, official
-              documentations and other developers.
-              <br />
-              <br />
-              Here you are gonna find projects i have worked on.
+          <section className='presentation'>
+            <h1 className='name'>I'm Aram Ceballos.</h1>
+            <p className='me'>
+              I'm a FullStack JavaScript/TypeScript Developer working mainly
+              with React.js and React Native
             </p>
+          </section>
+          <section className='info'>
+            <section className='info-section'>
+              <h3 className='subsection-title'>About Me</h3>
+              <p className='section-detail'>
+                My name is Aram and i am a FullStack and Mobile developer,
+                working with JavaScript, TypeScript and Python
+              </p>
+            </section>
+            <section className='info-section'>
+              <h3 className='subsection-title'>Contact Details</h3>
+              <p className='section-detail'>Name: Aram Ceballos</p>
+              <p className='section-detail'>
+                E-mail: aramgonzalez12@hotmail.com
+              </p>
+              <a
+                className='link'
+                href='https://www.linkedin.com/in/aram-ceballos-2258b717b/'
+                target='_blank'
+                rel='noopener noreferrer'>
+                LinkedIn
+              </a>
+              <a
+                className='link'
+                href='https://www.github.com/armc7'
+                target='_blank'
+                rel='noopener noreferrer'>
+                GitHub
+              </a>
+            </section>
           </section>
         </main>
       </AppLayout>
       <style jsx>{`
         main {
           height: 100%;
-          background: url('/Cover.jpg');
+        }
+
+        .presentation {
+          height: 100vh;
+          background: url('/background.jpg');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
@@ -31,32 +60,64 @@ const Home = () => {
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-direction: column;
         }
 
-        section {
-          backdrop-filter: blur(10px);
-          width: 90%;
-          box-shadow: 0px 0px 20px 4px #000000;
-          background-color: #00000099;
+        .name {
+          color: white;
+          font-size: 45px;
+          font-weight: 400;
+          font-family: 'Open Sans', sans-serif;
+          text-align: center;
         }
 
-        p {
-          font-size: 21px;
-          letter-spacing: 7px;
+        .me {
+          font-family: 'Open Sans', sans-serif;
+          font-size: 20px;
+          letter-spacing: 4px;
           color: black;
           text-align: center;
           color: white;
-          margin: 20px 10px;
+          margin: 0px 10px;
           font-weight: 200;
         }
 
+        .info {
+          background-color: ${colors.darkGray};
+          padding: 90px 0;
+        }
+
+        .info-section {
+          padding: 20px 30px;
+        }
+
+        .subsection-title {
+          margin: 0;
+          color: white;
+          font-size: 24px;
+        }
+
+        .section-detail {
+          color: #aaa;
+          font-weight: 300;
+        }
+
+        .link {
+          font-weight: 300;
+          color: #aaa;
+          text-decoration: underline;
+          margin-right: 40px;
+        }
+
         @media screen and (min-width: ${breakpoints.mobile}) {
-          main {
-            padding: 60px 0;
+          .name {
+            font-size: 80px;
           }
 
-          p {
+          .me {
             font-size: 30px;
+            margin: 0px 10px;
+            width: 70%;
           }
         }
       `}</style>

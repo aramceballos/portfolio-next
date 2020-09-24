@@ -14,6 +14,7 @@ export const breakpoints: any = {
 
 export const colors: any = {
   black: '#000000',
+  darkGray: '#1d1d1d',
   white: '#ffffff',
   transparentGray: '#1d1d1fd9',
 };
