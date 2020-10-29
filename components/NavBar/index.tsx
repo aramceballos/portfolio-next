@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import GitHubIcon from '../GitHubIcon';
 
@@ -7,6 +8,8 @@ import { colors, breakpoints } from '../../styles/theme';
 
 const NavBar = (): JSX.Element => {
   const [active, setActive] = useState(false);
+
+  const router = useRouter();
 
   // Get references of elements
   const navbar: React.Ref<any> = useRef(null);
@@ -18,6 +21,9 @@ const NavBar = (): JSX.Element => {
   const wrapperLine2: React.Ref<any> = useRef(null);
   const line1: React.Ref<any> = useRef(null);
   const line2: React.Ref<any> = useRef(null);
+  const border1: React.Ref<any> = useRef(null);
+  const border2: React.Ref<any> = useRef(null);
+  const border3: React.Ref<any> = useRef(null);
 
   // Timings for animations
   const timeForNavBar = active ? 400 : 0;
@@ -28,6 +34,22 @@ const NavBar = (): JSX.Element => {
   const timeForLink3 = active ? 250 : 400;
   const timeForVerticalMove = active ? 200 : 0;
   const timeForRotate = active ? 0 : 200;
+
+  useEffect(() => {
+    switch (router.pathname) {
+      case '/projects':
+        border1.current.classList.add('border-line-active');
+        break;
+
+      case '/certificates':
+        border2.current.classList.add('border-line-active');
+        break;
+
+      case '/curriculum':
+        border3.current.classList.add('border-line-active');
+        break;
+    }
+  }, [router.pathname]);
 
   const handleClick = () => {
     if (window.screen.width < 1024) {
@@ -69,6 +91,41 @@ const NavBar = (): JSX.Element => {
     }
   };
 
+  const handleHover = (ev: React.MouseEvent) => {
+    switch (ev.currentTarget.id) {
+      case 'item1':
+        border1.current.classList.add('border-line-active');
+        break;
+
+      case 'item2':
+        border2.current.classList.add('border-line-active');
+        break;
+
+      case 'item3':
+        border3.current.classList.add('border-line-active');
+        break;
+    }
+  };
+
+  const handleLeave = (ev: React.MouseEvent) => {
+    switch (ev.currentTarget.id) {
+      case 'item1':
+        if (router.pathname !== '/projects')
+          border1.current.classList.remove('border-line-active');
+        break;
+
+      case 'item2':
+        if (router.pathname !== '/certificates')
+          border2.current.classList.remove('border-line-active');
+        break;
+
+      case 'item3':
+        if (router.pathname !== '/curriculum')
+          border3.current.classList.remove('border-line-active');
+        break;
+    }
+  };
+
   return (
     <>
       <nav className='navbar' ref={navbar}>
@@ -91,26 +148,44 @@ const NavBar = (): JSX.Element => {
         </div>
 
         <ul className='nav-links' ref={ref}>
-          <li className='item' ref={projects}>
+          <li
+            className='item'
+            onMouseEnter={handleHover}
+            onMouseLeave={handleLeave}
+            id='item1'
+            ref={projects}>
             <Link href='/projects'>
               <a title='Projects Page' onClick={handleClick}>
                 PROJECTS
               </a>
             </Link>
+            <div className='border-line' ref={border1} />
           </li>
-          <li className='item' ref={certificates}>
+          <li
+            className='item'
+            onMouseEnter={handleHover}
+            onMouseLeave={handleLeave}
+            id='item2'
+            ref={certificates}>
             <Link href='/certificates'>
               <a title='Certificates Page' onClick={handleClick}>
                 CERTIFICATES
               </a>
             </Link>
+            <div className='border-line' ref={border2} />
           </li>
-          <li className='item' ref={curriculum}>
+          <li
+            className='item'
+            onMouseEnter={handleHover}
+            onMouseLeave={handleLeave}
+            id='item3'
+            ref={curriculum}>
             <Link href='/curriculum'>
               <a title='Curriculum Page' onClick={handleClick}>
                 CURRICULUM
               </a>
             </Link>
+            <div className='border-line' ref={border3} />
           </li>
         </ul>
 
@@ -291,6 +366,8 @@ const NavBar = (): JSX.Element => {
             border: initial;
             opacity: 1;
             display: flex;
+            flex-direction: column;
+            width: initial;
           }
 
           .github1 {
@@ -299,6 +376,17 @@ const NavBar = (): JSX.Element => {
 
           .github2 {
             display: block;
+          }
+
+          .border-line {
+            height: 1px;
+            width: 0;
+            background-color: #fff;
+            transition: 0.3s ease width;
+          }
+
+          .border-line-active {
+            width: 100%;
           }
         }
 
