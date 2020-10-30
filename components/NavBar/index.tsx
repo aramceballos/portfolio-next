@@ -15,7 +15,7 @@ const NavBar = (): JSX.Element => {
   const navbar: React.Ref<any> = useRef(null);
   const ref: React.Ref<any> = useRef(null);
   const projects: React.Ref<any> = useRef(null);
-  const certificates: React.Ref<any> = useRef(null);
+  const skills: React.Ref<any> = useRef(null);
   const curriculum: React.Ref<any> = useRef(null);
   const wrapperLine1: React.Ref<any> = useRef(null);
   const wrapperLine2: React.Ref<any> = useRef(null);
@@ -39,14 +39,25 @@ const NavBar = (): JSX.Element => {
     switch (router.pathname) {
       case '/projects':
         border1.current.classList.add('border-line-active');
+        border2.current.classList.remove('border-line-active');
+        border3.current.classList.remove('border-line-active');
         break;
 
-      case '/certificates':
+      case '/skills':
         border2.current.classList.add('border-line-active');
+        border1.current.classList.remove('border-line-active');
+        border3.current.classList.remove('border-line-active');
         break;
 
       case '/curriculum':
         border3.current.classList.add('border-line-active');
+        border1.current.classList.remove('border-line-active');
+        border2.current.classList.remove('border-line-active');
+        break;
+      default:
+        border1.current.classList.remove('border-line-active');
+        border2.current.classList.remove('border-line-active');
+        border3.current.classList.remove('border-line-active');
         break;
     }
   }, [router.pathname]);
@@ -65,7 +76,7 @@ const NavBar = (): JSX.Element => {
 
       setTimeout(() => {
         projects.current.style.display = active ? 'none' : 'flex';
-        certificates.current.style.display = active ? 'none' : 'flex';
+        skills.current.style.display = active ? 'none' : 'flex';
         curriculum.current.style.display = active ? 'none' : 'flex';
       }, timeForLinks);
 
@@ -73,7 +84,7 @@ const NavBar = (): JSX.Element => {
         projects.current.classList.toggle('items-active');
       }, timeForLink1);
       setTimeout(() => {
-        certificates.current.classList.toggle('items-active');
+        skills.current.classList.toggle('items-active');
       }, timeForLink2);
       setTimeout(() => {
         curriculum.current.classList.toggle('items-active');
@@ -115,7 +126,7 @@ const NavBar = (): JSX.Element => {
         break;
 
       case 'item2':
-        if (router.pathname !== '/certificates')
+        if (router.pathname !== '/skills')
           border2.current.classList.remove('border-line-active');
         break;
 
@@ -167,10 +178,10 @@ const NavBar = (): JSX.Element => {
             onMouseEnter={handleHover}
             onMouseLeave={handleLeave}
             id='item2'
-            ref={certificates}>
-            <Link href='/certificates'>
-              <a title='Certificates Page' onClick={handleClick}>
-                CERTIFICATES
+            ref={skills}>
+            <Link href='/skills'>
+              <a title='skills Page' onClick={handleClick}>
+                SKILLS
               </a>
             </Link>
             <div className='border-line' ref={border2} />

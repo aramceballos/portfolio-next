@@ -37,7 +37,7 @@ const AppLayout = ({ title, children }: AppLayoutProps): JSX.Element => {
           left: 0;
           right: 0;
           font-family: ${fonts.base};
-          background-color: ${colors.black};
+          background-color: ${colors.darkGray};
         }
 
         a {

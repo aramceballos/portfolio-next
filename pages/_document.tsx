@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
         <meta
           name='description'
-          content='This is the portfolio of a Full-Stack JavaScript Developer which you can find their projects, certificates and info about him'
+          content='This is the portfolio of a Full-Stack JavaScript Developer which you can find their projects, skills and info about him'
         />
         <meta name='robots' content='index, follow' />
         <meta name='author' content='Aram Ceballos' />
@@ -40,7 +40,7 @@ class MyDocument extends Document {
         <meta name='twitter:title' content='Aram Ceballos' />
         <meta
           name='twitter:description'
-          content='This is the portfolio of a Full-Stack JavaScript Developer which you can find their projects, certificates and info about him'
+          content='This is the portfolio of a Full-Stack JavaScript Developer which you can find their projects, skills and info about him'
         />
         <meta
           name='twitter:image'
@@ -51,7 +51,7 @@ class MyDocument extends Document {
         <meta property='og:title' content='Aram Ceballos' />
         <meta
           property='og:description'
-          content='This is the portfolio of a Full-Stack JavaScript Developer which you can find their projects, certificates and info about him'
+          content='This is the portfolio of a Full-Stack JavaScript Developer which you can find their projects, skills and info about him'
         />
         <meta property='og:site_name' content='Aram Ceballos' />
         <meta property='og:url' content='https://aramceballos.com' />
