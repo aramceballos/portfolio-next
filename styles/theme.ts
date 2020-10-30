@@ -13,8 +13,13 @@ export const breakpoints: any = {
 };
 
 export const colors: any = {
-  black: '#000000',
+  black: '#151515',
   darkGray: '#1d1d1d',
-  white: '#ffffff',
   transparentGray: '#1d1d1fd9',
+  white: '#fff',
+  blackPearl: '#20252c',
+  charade: '#272c35',
+  zircon: '#e0e0e0',
+  picton: '#3c6fc8',
+  carmine: '#ef6372',
 };

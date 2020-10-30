@@ -133,6 +133,7 @@ const NavBar = (): JSX.Element => {
           href='https://www.github.com/armc7'
           target='_blank'
           rel='noopener noreferrer'
+          title='GitHub'
           className='github1'>
           <GitHubIcon />
         </a>

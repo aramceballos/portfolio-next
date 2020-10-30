@@ -1,21 +1,6 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import Image from 'next/image';
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-});
+import { colors } from '../../styles/theme';
 
 type MediaCardProps = {
   title: string;
@@ -28,8 +13,6 @@ type MediaCardProps = {
 const MediaCard = (props: MediaCardProps) => {
   const { title, description, src, repository, url } = props;
 
-  const classes = useStyles();
-
   const handleClick = (link: string) => {
     const win = window.open(link, '_blank')!;
     win.focus();
@@ -37,44 +20,54 @@ const MediaCard = (props: MediaCardProps) => {
 
   return (
     <>
-      <div className='mediacard-container'>
-        <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia className={classes.media} image={src} title={title} />
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='h2'>
-                {title}
-              </Typography>
-              <Typography variant='body2' color='textSecondary' component='p'>
-                {description}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            {url && (
-              <Button
-                size='small'
-                color='primary'
-                onClick={() => handleClick(url.toString())}>
-                Go to page
-              </Button>
-            )}
-            {repository && (
-              <Button
-                size='small'
-                color='primary'
-                onClick={() => handleClick(repository.toString())}>
-                Repository
-              </Button>
-            )}
-          </CardActions>
-        </Card>
+      <div className='container'>
+        <img src={src} alt={`${title}-image`} className='image' />
+        <div className='links-container'>
+          <p className='text'>{title}</p>
+          {repository && (
+            <span className='link' onClick={() => handleClick(repository)}>
+              Go to repository
+            </span>
+          )}
+          {url && (
+            <span className='link' onClick={() => handleClick(url)}>
+              View demo
+            </span>
+          )}
+        </div>
       </div>
 
       <style jsx>{`
-        .mediacard-container {
+        .container {
           width: 345px;
           margin: 20px auto;
+          background-color: ${colors.charade};
+          position: relative;
+          overflow: hidden;
+        }
+
+        .image {
+          width: 100%;
+        }
+
+        .text {
+          color: ${colors.white};
+          font-family: 'Poppins';
+          font-weight: 300;
+          font-size: 20px;
+          margin: 5px 0;
+        }
+
+        .links-container {
+          padding: 5px;
+        }
+
+        .link {
+          color: ${colors.white};
+          font-family: 'Poppins';
+          margin-right: 20px;
+          font-weight: 200;
+          border-bottom: 1px solid ${colors.white};
         }
       `}</style>
     </>

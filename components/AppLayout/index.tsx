@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import { fonts } from '../../styles/theme';
-import NavBar from '../NavBar';
+import { colors, fonts } from '../../styles/theme';
 
 type AppLayoutProps = {
   title?: string;
@@ -17,10 +16,7 @@ const AppLayout = ({ title, children }: AppLayoutProps): JSX.Element => {
             : 'Aram Ceballos - Full Stack JavaScript Developer'}
         </title>
       </Head>
-      <main>
-        <NavBar />
-        {children}
-      </main>
+      <main>{children}</main>
 
       <style jsx>{`
         main {
@@ -41,6 +37,7 @@ const AppLayout = ({ title, children }: AppLayoutProps): JSX.Element => {
           left: 0;
           right: 0;
           font-family: ${fonts.base};
+          background-color: ${colors.black};
         }
 
         a {

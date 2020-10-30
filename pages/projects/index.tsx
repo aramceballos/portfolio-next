@@ -1,10 +1,10 @@
 import React from 'react';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import fetch from 'isomorphic-unfetch';
 import AppLayout from 'components/AppLayout';
 import ProjectList from 'components/ProjectList';
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch(
     'https://portfolio-rest-api.aram.vercel.app/api/projects',
   );

@@ -31,6 +31,7 @@ const Home = () => {
                 className='link'
                 href='https://www.linkedin.com/in/aram-ceballos-2258b717b/'
                 target='_blank'
+                title='LinkedIn'
                 rel='noopener noreferrer'>
                 LinkedIn
               </a>
@@ -38,6 +39,7 @@ const Home = () => {
                 className='link'
                 href='https://www.github.com/armc7'
                 target='_blank'
+                title='GitHub'
                 rel='noopener noreferrer'>
                 GitHub
               </a>
