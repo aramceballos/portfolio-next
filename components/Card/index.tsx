@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import { colors } from '../../styles/theme';
 
 type MediaCardProps = {
