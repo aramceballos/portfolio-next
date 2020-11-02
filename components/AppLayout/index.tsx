@@ -20,7 +20,7 @@ const AppLayout = ({ title, children }: AppLayoutProps): JSX.Element => {
 
       <style jsx>{`
         main {
-          height: 100vh;
+          height: calc(100% - 60px);
         }
       `}</style>
 

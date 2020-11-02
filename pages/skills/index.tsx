@@ -50,6 +50,7 @@ const Skills = () => {
           padding: 20px;
           display: flex;
           flex-wrap: wrap;
+          height: 100%;
         }
 
         p {

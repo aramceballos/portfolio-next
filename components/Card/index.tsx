@@ -19,7 +19,9 @@ const MediaCard = (props: MediaCardProps) => {
   return (
     <>
       <div className='container'>
-        <img src={src} alt={`${title}-image`} className='image' />
+        <div className='image-container'>
+          <img src={src} alt={`${title}-image`} className='image' />
+        </div>
         <div className='links-container'>
           <p className='text'>{title}</p>
           {repository && (
@@ -44,8 +46,17 @@ const MediaCard = (props: MediaCardProps) => {
           overflow: hidden;
         }
 
-        .image {
+        .image-container {
           width: 100%;
+          max-height: 250px;
+          display: flex;
+          justify-content: center;
+          background-color: #2f2f2f;
+        }
+
+        .image {
+          max-width: 100%;
+          object-fit: contain;
         }
 
         .text {
