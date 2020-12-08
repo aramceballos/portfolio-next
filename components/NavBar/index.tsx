@@ -212,7 +212,7 @@ const NavBar = (): JSX.Element => {
         </div>
 
         <a
-          href='https://www.github.com/armc7'
+          href='https://www.github.com/aramceballos'
           target='_blank'
           rel='noopener noreferrer'
           className='github2'>
