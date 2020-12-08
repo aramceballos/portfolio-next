@@ -141,7 +141,7 @@ const NavBar = (): JSX.Element => {
     <>
       <nav className='navbar' ref={navbar}>
         <a
-          href='https://www.github.com/armc7'
+          href='https://www.github.com/aramceballos'
           target='_blank'
           rel='noopener noreferrer'
           title='GitHub'
