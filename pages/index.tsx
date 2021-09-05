@@ -1,7 +1,23 @@
+import { GetServerSideProps } from 'next';
+
 import AppLayout from '../components/AppLayout';
+import ProjectList from 'components/ProjectList';
 import { breakpoints, colors } from '../styles/theme';
 
-const Home = () => {
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = await fetch(
+    'https://portfolio-rest-api.aram.vercel.app/api/projects',
+  );
+  const { data }: TAPIProjectsResponse = await response.json();
+
+  return {
+    props: {
+      projects: data,
+    },
+  };
+};
+
+const Home = ({ projects }: { projects: TProject[] }) => {
   return (
     <>
       <AppLayout>
@@ -12,6 +28,10 @@ const Home = () => {
               I'm a FullStack JavaScript/TypeScript Developer working mainly
               with React.js and React Native
             </p>
+          </section>
+          <section>
+            <h2 className='projects-title'>Projects</h2>
+            <ProjectList projects={projects} />
           </section>
           <section className='info'>
             <section className='info-section'>
@@ -82,6 +102,16 @@ const Home = () => {
           color: white;
           margin: 0px 10px;
           font-weight: 200;
+        }
+
+        .projects-title {
+          color: #fff;
+          font-size: 30px;
+          font-weight: 100;
+          border-bottom: 1px solid #fff;
+          letter-spacing: 2px;
+          width: fit-content;
+          margin-left: 7.5px;
         }
 
         .info {

@@ -22,13 +22,10 @@ const ProjectList = ({ projects }: ProjectListProps) => {
 
       <style jsx>{`
         section {
-          max-width: 750px;
-          height: 100%;
           display: flex;
           flex-wrap: wrap;
           margin: 50px auto 0;
           box-shadow: 0px 0px 7px 1px ${colors.darkGray};
-          background-color: ${colors.blackPearl};
           align-items: flex-start;
         }
 

@@ -77,6 +77,7 @@ const MediaCard = (props: MediaCardProps) => {
           margin-right: 20px;
           font-weight: 200;
           border-bottom: 1px solid ${colors.white};
+          cursor: pointer;
         }
       `}</style>
     </>
