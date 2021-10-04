@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import { colors, fonts } from '../../styles/theme';
+import Head from "next/head";
 
 type AppLayoutProps = {
   title?: string;
@@ -13,37 +12,46 @@ const AppLayout = ({ title, children }: AppLayoutProps): JSX.Element => {
         <title>
           {title
             ? `${title} | Aram Ceballos`
-            : 'Aram Ceballos - Full Stack JavaScript Developer'}
+            : "Aram Ceballos - Full Stack JavaScript Developer"}
         </title>
       </Head>
-      <main>{children}</main>
-
-      <style jsx>{`
-        main {
-          height: calc(100% - 60px);
-        }
-      `}</style>
+      {children}
 
       <style jsx global>{`
         * {
           outline: none;
         }
-        html,
+        *,
+        :after,
+        :before {
+          box-sizing: border-box;
+        }
+        html {
+          font-size: 62.5%;
+        }
         body {
+          -webkit-text-size-adjust: 100%;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+          background-color: #fff;
+          color: #212529;
+          font-family: Montserrat, sans-serif;
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5;
           margin: 0;
-          padding: 0;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          font-family: ${fonts.base};
-          background-color: ${colors.darkGray};
+          text-align: center;
         }
 
         a {
           text-decoration: none;
           display: inline;
           color: black;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+          html {
+            scroll-behavior: smooth;
+          }
         }
       `}</style>
     </>
