@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
 import { ChevronUp } from "@styled-icons/evil";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-reveal";
 import { Github, Linkedin } from "@styled-icons/boxicons-logos";
 
 import AppLayout from "@components/AppLayout";

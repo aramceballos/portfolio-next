@@ -1,3 +1,5 @@
+declare module 'react-reveal';
+
 type TProjectId = string;
 type TCertificateId = string;
 
