@@ -177,12 +177,11 @@ const Home = ({ projects }: { projects: TProject[] }) => {
             </Fade>
             <Fade bottom delay={600} distance='20px'>
               <div className='contact-wrapper'>
-                <p className='contact-wrapper-text'>Send me an Email</p>
                 <a
                   href='mailto:aramgonzalez12@hotmail.com'
                   className='contact-button'
                 >
-                  Call to Action
+                  Send me an Email
                 </a>
               </div>
             </Fade>
