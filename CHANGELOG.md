@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.2 (October 4, 2021)
+
+- Remove irrelevant text
+
 ## 2.0.1 (October 3, 2021)
 
 - Fix React Reveal import error
