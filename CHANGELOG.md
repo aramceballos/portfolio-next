@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.3 (November 17, 2021)
+
+- Update Resume
+
 ## 2.0.2 (October 4, 2021)
 
 - Remove irrelevant text
