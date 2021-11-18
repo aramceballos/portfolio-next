@@ -87,8 +87,12 @@ const Home = ({ projects }: { projects: TProject[] }) => {
                       long distances.
                     </p>
                     <span className='button-container'>
-                      <a href='' className='view-cv-button'>
-                        Download CV
+                      <a
+                        href='Resume.pdf'
+                        download='Resume'
+                        className='view-resume-button'
+                      >
+                        Download Resume
                       </a>
                     </span>
                   </div>
@@ -363,7 +367,7 @@ const Home = ({ projects }: { projects: TProject[] }) => {
           display: flex;
         }
 
-        .view-cv-button {
+        .view-resume-button {
           display: inline-block;
           font-weight: 700;
           line-height: 1;
@@ -376,13 +380,13 @@ const Home = ({ projects }: { projects: TProject[] }) => {
           font-size: 1.6rem;
         }
 
-        .view-cv-button :hover {
+        .view-resume-button :hover {
           color: #00cdac;
           text-decoration: none;
           transition: all 0.3s ease-in-out;
         }
 
-        .view-cv-button :after {
+        .view-resume-button :after {
           bottom: 0;
           content: "";
           display: block;
@@ -395,7 +399,7 @@ const Home = ({ projects }: { projects: TProject[] }) => {
           background: #fff;
         }
 
-        .view-cv-button:hover:after {
+        .view-resume-button:hover:after {
           width: 100%;
         }
 
