@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.4 (December 21, 2022)
+
+- Fix wrong api call
+
 ## 2.0.3 (November 17, 2021)
 
 - Update Resume
