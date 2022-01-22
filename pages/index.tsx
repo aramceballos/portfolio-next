@@ -8,7 +8,7 @@ import AppLayout from "@components/AppLayout";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch(
-    "https://portfolio-rest-api.aram.vercel.app/api/projects"
+    "https://portfolio-rest-api.vercel.app/api/projects"
   );
   const { data }: TAPIProjectsResponse = await response.json();
 
