@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.1.0 (February 19, 2023)
+
+- Add new relic
+
 ## 2.0.4 (December 21, 2022)
 
 - Fix wrong api call
