@@ -5,7 +5,9 @@ class MyDocument extends Document {
     return (
       <>
         <Html lang='en'>
-          <Head />
+          <Head>
+            <script async type='text/javascript' src='/js/newrelic.js' />
+          </Head>
 
           <meta
             name='description'
