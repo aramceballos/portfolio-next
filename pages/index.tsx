@@ -5,6 +5,7 @@ import { Fade } from "react-reveal";
 import { Github, Linkedin } from "@styled-icons/boxicons-logos";
 
 import AppLayout from "@components/AppLayout";
+// import Fade from "@components/Fade";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch(
