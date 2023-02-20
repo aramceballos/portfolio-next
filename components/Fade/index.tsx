@@ -20,24 +20,33 @@ const Fade = ({
   duration,
   distance,
 }: FadeProps) => {
+  const uniqueId = Math.random().toString(36).substr(2, 9);
+
+  const childrenWithClassName = React.Children.map(children, (child) => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, {
+        style: {
+          animationFillMode: "both",
+          animationDuration: duration ? duration + "ms" : "0ms",
+          animationDelay: delay ? delay + "ms" : "0ms",
+          animationIterationCount: 1,
+          opacity: 1,
+          animationName: `fade-animation-${uniqueId}`,
+        },
+      });
+    }
+    return child;
+  });
+
   return (
     <>
-      <div className='fade-container'>{children}</div>
+      {childrenWithClassName}
       <style jsx>{`
-        .fade-container {
-          animation-fill-mode: both;
-          animation-duration: ${duration + "ms" || "0ms"};
-          animation-delay: ${delay + "ms" || "0ms"};
-          animation-iteration-count: 1;
-          opacity: 1;
-          animation-name: fade-animation;
-        }
-
-        @keyframes fade-animation {
+        @keyframes fade-animation-${uniqueId} {
           0% {
             opacity: 0;
             transform: translate3d(
-              ${left ? "-" + distance : right ? "-" + distance : 0},
+              ${left ? "-" + distance : right ? distance : 0},
               ${bottom ? "-" + distance : 0},
               0
             );

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
 import { ChevronUp } from "@styled-icons/evil";
-import { Fade } from "react-reveal";
+// import { Fade } from "react-reveal";
 import { Github, Linkedin } from "@styled-icons/boxicons-logos";
 
 import AppLayout from "@components/AppLayout";
-// import Fade from "@components/Fade";
+import Fade from "@components/Fade";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch(
@@ -281,7 +281,7 @@ const Home = ({ projects }: { projects: TProject[] }) => {
           font-size: 2.4rem;
         }
 
-        .know-more-button :after {
+        .know-more-button:after {
           background-image: linear-gradient(135deg, #02aab0, #00cdac);
           bottom: 0;
           content: "";
@@ -381,13 +381,13 @@ const Home = ({ projects }: { projects: TProject[] }) => {
           font-size: 1.6rem;
         }
 
-        .view-resume-button :hover {
+        .view-resume-button:hover {
           color: #00cdac;
           text-decoration: none;
           transition: all 0.3s ease-in-out;
         }
 
-        .view-resume-button :after {
+        .view-resume-button:after {
           bottom: 0;
           content: "";
           display: block;
@@ -456,7 +456,7 @@ const Home = ({ projects }: { projects: TProject[] }) => {
           font-size: 1.6rem;
         }
 
-        .view-demo-button :after {
+        .view-demo-button:after {
           bottom: 0;
           content: "";
           display: block;
@@ -469,13 +469,13 @@ const Home = ({ projects }: { projects: TProject[] }) => {
           background-image: linear-gradient(135deg, #02aab0, #00cdac);
         }
 
-        .view-demo-button :hover {
+        .view-demo-button:hover {
           -webkit-text-fill-color: #fff;
           text-decoration: none;
           transition: all 0.3s ease-in-out;
         }
 
-        .view-demo-button :hover:after {
+        .view-demo-button:hover:after {
           width: 100%;
         }
 
@@ -496,13 +496,13 @@ const Home = ({ projects }: { projects: TProject[] }) => {
           font-size: 1.6rem;
         }
 
-        .view-code-button :hover {
+        .view-code-button:hover {
           transition: all 0.3s ease-in-out;
           transform: translateX(2px);
           color: #0a58ca;
         }
 
-        .view-code-button :after {
+        .view-code-button:after {
           bottom: 0;
           content: "";
           display: block;
@@ -574,7 +574,7 @@ const Home = ({ projects }: { projects: TProject[] }) => {
           font-size: 2.4rem;
         }
 
-        .contact-button :after {
+        .contact-button:after {
           bottom: 0;
           content: "";
           display: block;
@@ -587,12 +587,12 @@ const Home = ({ projects }: { projects: TProject[] }) => {
           background: #fff;
         }
 
-        .contact-button :hover {
+        .contact-button:hover {
           color: #00cdac;
           text-decoration: none;
         }
 
-        .contact-button :hover:after {
+        .contact-button:hover:after {
           width: 100%;
         }
 
@@ -768,11 +768,11 @@ const Home = ({ projects }: { projects: TProject[] }) => {
             font-size: 2rem;
           }
 
-          .know-more-button :after {
+          .know-more-button:after {
             background-image: none;
           }
 
-          .know-more-button :hover {
+          .know-more-button:hover {
             -webkit-text-fill-color: #00cdac;
           }
 
@@ -812,11 +812,11 @@ const Home = ({ projects }: { projects: TProject[] }) => {
             border: 2px solid #00cdac;
           }
 
-          .view-demo-button :after {
+          .view-demo-button:after {
             background-image: none;
           }
 
-          .view-demo-button :hover {
+          .view-demo-button:hover {
             -webkit-text-fill-color: #00cdac;
           }
 
