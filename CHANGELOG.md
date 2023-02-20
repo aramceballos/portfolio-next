@@ -1,5 +1,9 @@
 # Change Log
 
+## 3.0.0 (February 20, 2023)
+
+- Update to Nextjs13
+
 ## 2.1.0 (February 19, 2023)
 
 - Add new relic
