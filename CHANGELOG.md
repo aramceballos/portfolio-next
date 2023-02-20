@@ -1,5 +1,9 @@
 # Change Log
 
+## 3.0.1 (February 20, 2023)
+
+- Fix ts error on build
+
 ## 3.0.0 (February 20, 2023)
 
 - Update to Nextjs13
