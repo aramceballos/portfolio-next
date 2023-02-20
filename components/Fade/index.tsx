@@ -25,6 +25,7 @@ const Fade = ({
   const childrenWithClassName = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, {
+        // @ts-ignore
         style: {
           animationFillMode: "both",
           animationDuration: duration ? duration + "ms" : "0ms",
